@@ -15,5 +15,10 @@ router.register("chegirmalilar", ChegirmaViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('mahsulot/<int:pk>/', BittaMahsulot.as_view()),
+    path('izohlar/<int:pk>/', IzohAPIView.as_view()),
+    path('delete_izoh/<int:pk>/', DeleteIzohAPIView.as_view()),
     path('', include(router.urls)),
+    path('user/', include('userapp.urls')),
+    path('order/', include('buyurtma.urls'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
